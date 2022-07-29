@@ -1,6 +1,6 @@
 {
-  "name": "payroll-ach",
-  "version": "1.0.1",
+  "name": "nacha-gen",
+  "version": "1.0.0",
   "description": "npm module to create ach file",
   "main": "index.js",
   "directories": {
@@ -21,17 +21,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amit1989patel/payroll-ach.git"
+    "url": "git+https://github.com/jdforsythe/nacha-gen.git"
   },
   "keywords": [
     "ach",
     "npm",
     "nach"
   ],
-  "author": "amit kumar",
-  "license": "ISC",
+  "author": "Jeremy Forsythe",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amit1989patel/payroll-ach/issues"
+    "url": "https://github.com/jdforsythe/nacha-gen/issues"
   },
-  "homepage": "https://github.com/amit1989patel/payroll-ach#readme"
+  "homepage": "https://github.com/jdforsythe/nacha-gen#readme"
 }

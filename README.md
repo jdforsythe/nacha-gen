@@ -1,22 +1,22 @@
-# nACH2
+# nacha-gen
 
-[![npm](https://img.shields.io/npm/v/nach2.svg?maxAge=2592000)](https://www.npmjs.com/package/nach2)
-[![Travis](https://img.shields.io/travis/glenselle/nACH.svg?maxAge=2592000)](https://travis-ci.org/glenselle/nACH)
-[![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
+Formerly `nach2` and forked from [amit1989patel/payroll-ach](https://github.com/amit1989patel/payroll-ach), this is a NACHA file generator library.
+
+There are some errors in the `payroll-ach` that appear to be present from when it was `nach2`. Those have been resolved here.
 
 nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
 
  Note: nACH does not bundle a bank agreement/partnership to upload ACH files to the network :)
 
 ## Getting Started
-To intall nACH, use NPM:
+To intall nacha-gen, use NPM:
 
-    $ npm install nach
+    $ npm install nacha-gen
 
 Then include the NPM module like so:
 
 ```js
-var nach = require('nach');
+var nacha = require('nacha-gen');
 ```
 
 Now you're ready to start creating ACH files.
@@ -73,7 +73,7 @@ As seen above, each file has one file header and one file control (similar to a 
 To create a file:
 
 ```js
-var file = new nach.File({
+var file = new nacha.File({
     immediateDestination: '081000032',
     immediateOrigin: '123456789',
     immediateDestinationName: 'Some Bank',
@@ -85,14 +85,14 @@ var file = new nach.File({
 To create a batch
 
 ```js
-var batch = new nach.Batch({
+var batch = new nacha.Batch({
     serviceClassCode: '220',
     companyName: 'Your Company Inc',
     standardEntryClassCode: 'WEB',
     companyIdentification: '123456789',
     companyEntryDescription: 'Trans Description',
-    companyDescriptiveDate: moment(nach.Utils.computeBusinessDay(8)).format('MMM D'),
-    effectiveEntryDate: nach.Utils.computeBusinessDay(8),
+    companyDescriptiveDate: moment(nacha.Utils.computeBusinessDay(8)).format('MMM D'),
+    effectiveEntryDate: nacha.Utils.computeBusinessDay(8),
     originatingDFI: '081000032'
 });
 ```
@@ -100,7 +100,7 @@ var batch = new nach.Batch({
 To create an entry
 
 ```js
-var entry = new nach.Entry({
+var entry = new nacha.Entry({
     receivingDFI: '081000210',
     DFIAccount: '5654221',
     amount: '175',
@@ -114,7 +114,7 @@ var entry = new nach.Entry({
 To add one or more optional addenda records to an entry
 
 ```js
-var addenda = new nach.EntryAddenda({
+var addenda = new nacha.EntryAddenda({
     paymentRelatedInformation: "0123456789ABCDEFGJIJKLMNOPQRSTUVWXYXabcdefgjijklmnopqrstuvwxyx"
 });
 entry.addAdenda(addenda);
